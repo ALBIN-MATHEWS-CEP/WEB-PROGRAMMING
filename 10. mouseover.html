@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html> <head> <title>Mouse Over Event</title>
+
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+    }
+
+    #content {
+        background-color: lightblue;
+        padding: 30px;
+        width: 300px;
+        margin: auto;
+        cursor: pointer;
+    }
+
+    #result {
+        display: none;
+        margin-top: 20px;
+    }
+
+    img {
+        width: 200px;
+        height: 150px;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<h2>Mouse Over Event Handling</h2>
+
+<div id="content"
+     onmouseover="show()"
+     onmouseout="hide()">
+
+    <h3>Move Mouse Here</h3>
+    <p>Hover over this content to see an image and text.</p>
+
+</div>
+
+<div id="result">
+
+    <img src="https://picsum.photos/300/200" alt="Sample image">
+
+    <h3>Welcome!</h3>
+
+    <p>You moved the mouse over the content.</p>
+
+</div>
+
+<script>
+
+    function show()
+    {
+        document.getElementById("result").style.display = "block";
+    }
+
+    function hide()
+    {
+        document.getElementById("result").style.display = "none";
+    }
+
+</script>
+
+
+</body> </html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html> <head> <title>Online Examination</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background-color: lightblue;
+        padding: 20px;
+    }
+
+    .container {
+        background-color: white;
+        padding: 20px;
+        width: 60%;
+        margin: auto;
+        border-radius: 10px;
+    }
+
+    h2 {
+        text-align: center;
+        color: blue;
+    }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #result {
+        font-size: 20px;
+        color: green;
+        font-weight: bold;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Online Examination</h2>
+
+    Student Name:
+    <input type="text" id="name">
+    <br><br>
+
+    <form id="exam">
+
+        <div class="question">
+            <p>1. Which language is used for web development?</p>
+
+            <input type="radio" name="q1" value="HTML"> HTML<br>
+            <input type="radio" name="q1" value="Python"> Python<br>
+            <input type="radio" name="q1" value="Java"> Java<br>
+        </div>
+
+        <div class="question">
+            <p>2. What does CSS stand for?</p>
+
+            <input type="radio" name="q2" value="Cascading Style Sheets"> Cascading Style Sheets<br>
+            <input type="radio" name="q2" value="Computer Style Sheets"> Computer Style Sheets<br>
+            <input type="radio" name="q2" value="Creative Style Sheets"> Creative Style Sheets<br>
+        </div>
+
+        <div class="question">
+            <p>3. Which tag is used to create a paragraph in HTML?</p>
+
+            <input type="radio" name="q3" value="p"> &lt;p&gt;<br>
+            <input type="radio" name="q3" value="h1"> &lt;h1&gt;<br>
+            <input type="radio" name="q3" value="br"> &lt;br&gt;<br>
+        </div>
+
+        <div class="question">
+            <p>4. Which function is used to display an alert in JavaScript?</p>
+
+            <input type="radio" name="q4" value="alert()"> alert()<br>
+            <input type="radio" name="q4" value="print()"> print()<br>
+            <input type="radio" name="q4" value="display()"> display()<br>
+        </div>
+
+        <div class="question">
+            <p>5. Which symbol is used for comments in JavaScript?</p>
+
+            <input type="radio" name="q5" value="//"> //<br>
+            <input type="radio" name="q5" value="##"> ##<br>
+            <input type="radio" name="q5" value="**"> **<br>
+        </div>
+
+        <button type="button" onclick="submitExam()">Submit Exam</button>
+
+    </form>
+
+    <h3 id="result"></h3>
+
+</div>
+
+<script>
+
+    function submitExam()
+    {
+        let name = document.getElementById("name").value;
+
+        if(name == "")
+        {
+            alert("Please enter your name");
+            return;
+        }
+
+        let answers = ["HTML",
+                       "Cascading Style Sheets",
+                       "p",
+                       "alert()",
+                       "//"];
+
+        let score = 0;
+
+        for(let i = 1; i <= 5; i++)
+        {
+            let selected = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            if(selected && selected.value == answers[i-1])
+            {
+                score++;
+            }
+        }
+
+        document.getElementById("result").innerHTML =
+            "Student Name: " + name + "<br>" +
+            "Total Marks: " + score + "/5<br>" +
+            "Correct Answers: " + score + "<br>" +
+            "Wrong Answers: " + (5-score);
+    }
+
+</script>
+
+
+</body> </html>
